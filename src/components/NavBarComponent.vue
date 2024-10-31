@@ -31,10 +31,12 @@ nav ul {
 }
 nav li {
     margin-right: 20px;
+    font-size: 22px;
 }
 nav a {
     text-decoration: none;
-    color: #007bff;
+    color: #3a6351;
+    font-family: 'Alegreya Sans SC';
 }
 nav a:hover {
     text-decoration: underline;
