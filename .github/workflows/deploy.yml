@@ -3,29 +3,29 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - master  # Основна гілка вашого репозиторію
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v2
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: 'latest'
+        node-version: '18'  # Замініть '18' на потрібну вам версію Node.js
 
     - name: Install dependencies
       run: npm install
 
-    - name: Build
-      run: npm run build  # Якщо потрібно, щоб генерувати вміст у docs
+    - name: Build project
+      run: npm run build
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs =
+        publish_dir: ./docs  # Папка з файлами після збірки
